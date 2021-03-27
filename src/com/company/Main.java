@@ -1,23 +1,27 @@
 package com.company;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-	Scanner in =new Scanner(System.in);
-	String s=in.next();
-	int n=0;
-	int[] arr= new int[s.length()/2+s.length()%2];
-        for (int i = 0; i <s.length() ; i+=2) {
-            arr[n]=(Integer.parseInt(String.valueOf(s.toCharArray()[i])));
-            n++;
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        int n = 1;
+        boolean b = false;
+        char[] arr = s.toCharArray();
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (arr[i] == arr[i + 1]) n++;
+            else {
+                if (n >= 7) {
+                    b = true;
+                    break;
+                }
+                n = 1;
+
+            }
         }
-        Arrays.sort(arr);
-        for (int i = 0; i <arr.length ; i++) {
-            if (i!=arr.length-1) System.out.print(arr[i]+"+");
-            else System.out.println(arr[i]);
-        }
+        if (b || n >= 7) System.out.println("YES");
+        else System.out.println("NO");
     }
 }
