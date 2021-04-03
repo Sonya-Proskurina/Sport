@@ -13,18 +13,18 @@ public class Main {
         for (int i = 0; i <N ; i++) {
             list.add(in.nextInt());
         }
+
         for (int i = 0; i <N ; i++) {
-           int minI=i;
-            for (int j = i+1; j <N; j++) {
-                if (list.get(j)<list.get(minI)){
-                    minI=j;
+            boolean b=true;
+            for (int j = 0; j <N-i-1 ; j++) {
+                if (list.get(j)>list.get(j+1)){
+                    int temp=list.get(j);
+                    list.set(j,list.get(j+1));
+                    list.set(j+1, temp);
+                    b=false;
                 }
             }
-            if (minI!=i){
-                int c=list.get(minI);
-                list.set(minI,list.get(i));
-                list.set(i,c);
-            }
+            if (b) break;
         }
 
         for (int i = 0; i <N ; i++) {
