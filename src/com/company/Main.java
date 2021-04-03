@@ -1,27 +1,34 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String s = in.next();
-        int n = 1;
-        boolean b = false;
-        char[] arr = s.toCharArray();
-        for (int i = 0; i < s.length() - 1; i++) {
-            if (arr[i] == arr[i + 1]) n++;
-            else {
-                if (n >= 7) {
-                    b = true;
-                    break;
-                }
-                n = 1;
+        Scanner in= new Scanner(System.in);
+        List<Integer> list=new ArrayList<>();
+        int N=in.nextInt();
 
+        for (int i = 0; i <N ; i++) {
+            list.add(in.nextInt());
+        }
+        for (int i = 0; i <N ; i++) {
+           int minI=i;
+            for (int j = i+1; j <N; j++) {
+                if (list.get(j)<list.get(minI)){
+                    minI=j;
+                }
+            }
+            if (minI!=i){
+                int c=list.get(minI);
+                list.set(minI,list.get(i));
+                list.set(i,c);
             }
         }
-        if (b || n >= 7) System.out.println("YES");
-        else System.out.println("NO");
+
+        for (int i = 0; i <N ; i++) {
+            System.out.print(list.get(i)+" ");
+        }
     }
 }
