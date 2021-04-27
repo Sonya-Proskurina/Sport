@@ -1,34 +1,23 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner in= new Scanner(System.in);
-        List<Integer> list=new ArrayList<>();
-        int N=in.nextInt();
-
-        for (int i = 0; i <N ; i++) {
-            list.add(in.nextInt());
-        }
-
-        for (int i = 0; i <N ; i++) {
-            boolean b=true;
-            for (int j = 0; j <N-i-1 ; j++) {
-                if (list.get(j)>list.get(j+1)){
-                    int temp=list.get(j);
-                    list.set(j,list.get(j+1));
-                    list.set(j+1, temp);
-                    b=false;
+        Scanner in = new Scanner(System.in);
+        int num = in.nextInt();
+        for (int i = 0; i < num; i++) {
+            long ostatok, k = 0;
+            long n = in.nextLong();
+            if (n < 2050 || n % 2050 != 0) System.out.println(-1);
+            else {
+                ostatok = n / 2050;
+                while (ostatok > 0) {
+                    k += ostatok % 10;
+                    ostatok /= 10;
                 }
+                System.out.println(k);
             }
-            if (b) break;
-        }
-
-        for (int i = 0; i <N ; i++) {
-            System.out.print(list.get(i)+" ");
         }
     }
 }
