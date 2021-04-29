@@ -3,28 +3,25 @@ package com.company;
 import java.util.*;
 
 public class Main {
-    static boolean antiSqrt(int n) {
-        boolean b = true;
-        for (int i = 0; i <= n / 2; i++) {
-            if (i * i == n) b = false;
-        }
-        if (n == 1) b = false;
-        return b;
-    }
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int t = in.nextInt(), n, k;
-        for (int i = 0; i < t; i++) {
-            n = in.nextInt();
-            k = 0;
-            for (int j = 0; j < n; j++) {
-                if (antiSqrt(in.nextInt())) {
-                    k++;
-                }
+        int n=in.nextInt(),myMax=0,myS=0,myMin=0;
+        for (int i = 0; i <n ; i++) {
+            int a=in.nextInt();
+            if (a>myMax){
+                myS=myMax;
+                myMax=a;
             }
-            if (k == 0) System.out.println("NO");
-            else System.out.println("YES");
+            else if (a<myMax&&a>myS){
+                myMin=myS;
+                myS=a;
+            }
+            else if (a<myMax&&a<myS&&a>myMin){
+                myMin=a;
+            }
         }
+        if (myMax!=0&&myMin!=0&&myS!=0)
+        System.out.println(myMax+" "+myS+" "+myMin);
+        else System.out.println("-1 -1 -1");
     }
 }
