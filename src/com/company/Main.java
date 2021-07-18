@@ -5,14 +5,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String s=in.next();
-        Set<Character> mySet = new HashSet<>();
-
-        for (int i = 0; i <s.length() ; i++) {
-            mySet.add(s.toCharArray()[i]);
-        }
-
-        if (mySet.size()%2==0) System.out.println("CHAT WITH HER!");
-        else System.out.println("IGNORE HIM!");
+        int k=in.nextInt(), money=in.nextInt(), n=in.nextInt();
+        int dolg=(k*(1+n)*n/2-money>0)?k*(1+n)*n/2-money:0;
+        System.out.println(dolg);
     }
 }
