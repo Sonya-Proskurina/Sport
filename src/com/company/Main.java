@@ -4,15 +4,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
-        String s = in.next(), newS="";
-        newS =s.replace("WUB"," ");
-        newS=newS.replaceAll("[\\s]{2,}", " ");
-        while (newS.toCharArray()[0]==' '){
-            newS= new StringBuilder(newS).deleteCharAt(0).toString();
+        int t=in.nextInt();
+        for (int i = 0; i <t ; i++) {
+            long n = in.nextLong();
+            int k = 0;
+            while (n % 3 == 0) {
+                if (n % 6 == 0) n /= 6;
+                else n *= 2;
+                k++;
+            }
+            if (n == 1) System.out.println(k);
+            else System.out.println(-1);
         }
-        while (newS.toCharArray()[newS.length()-1]==' '){
-            newS= new StringBuilder(newS).deleteCharAt(newS.length()-1).toString();
-        }
-        System.out.println(newS);
     }
 }
