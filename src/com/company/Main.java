@@ -4,17 +4,23 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
-        int t=in.nextInt();
+        int t=in.nextInt(),n;
+        boolean f;
         for (int i = 0; i <t ; i++) {
-            long n = in.nextLong();
-            int k = 0;
-            while (n % 3 == 0) {
-                if (n % 6 == 0) n /= 6;
-                else n *= 2;
-                k++;
+            f=false;
+            n=in.nextInt();
+            for (int j = 0; j <500; j++) {
+                for (int k = 0; k <500; k++) {
+                    if ((j+k)*2020+k==n&&(j>0||k>0)){
+                        f=true;
+                        break;
+                    }
+                    else if ((j+k)*2020+k>n) break;
+                }
+                if (f) break;
             }
-            if (n == 1) System.out.println(k);
-            else System.out.println(-1);
+            if (f) System.out.println("YES");
+            else System.out.println("NO");
         }
     }
 }
