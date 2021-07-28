@@ -4,9 +4,18 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
-        long n= in.nextLong(), m=in.nextLong(),a = in.nextLong();
-        n = (n%a==0)? n/a: n/a+1;
-        m = (m%a==0)? m/a: m/a+1;
-        System.out.println(n*m);
+        long n= in.nextLong(), m=in.nextLong();
+        long k=0, me=1;
+        for (int i = 0; i <m; i++) {
+            long a =in.nextLong();
+            if (a>=me) {
+                k+=(a-me);
+            }
+            else {
+                k+=(n-me+a);
+            }
+            me=a;
+        }
+        System.out.println(k);
     }
 }
