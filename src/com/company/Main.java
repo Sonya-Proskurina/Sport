@@ -4,12 +4,13 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
-        long n= in.nextLong(), k=0;
-        while (n>0){
-            if (n%10==7||n%10==4) k++;
-            n/=10;
+        String s=in.next();
+        for (int i = 0; i <s.length(); i++) {
+            if (s.toCharArray()[i]=='H'||s.toCharArray()[i]=='Q'||s.toCharArray()[i]=='9') {
+                System.out.println("YES");
+                break;
+            }
+            else if (i==s.length()-1) System.out.println("NO");
         }
-        if (k==7||k==4) System.out.println("YES");
-        else System.out.println("NO");
     }
 }
