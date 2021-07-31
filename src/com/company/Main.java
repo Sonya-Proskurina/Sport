@@ -5,21 +5,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String s = in.next();
-        char[] arr = new char[s.length()];
-        boolean a=((int)s.toCharArray()[0]<=90),b=true,c=true;
-        for (int i = 1; i <s.length(); i++) {
-            if ((int)s.toCharArray()[i]<=90)
-                b=false;
-            else c = false;
-        }
-        if (a&&c||!a&&c) {
-            for (int i = 0; i <s.length(); i++) {
-                if ((int)s.toCharArray()[i]<=90) arr[i] = (char)((int)(s.toCharArray()[i])+32);
-                else arr[i] = (char)((int)(s.toCharArray()[i])-32);
-            }
-            System.out.println(String.valueOf(arr));
-        }
-        else System.out.println(s);
+        int a=in.nextInt(), b= in.nextInt(), c = in.nextInt();
+        if (a==1&&b==1&&c==1) System.out.println(3);
+        else if (a==1&&b==1) System.out.println(2*c);
+        else if (a==1&&c==1) System.out.println(b+2);
+        else if (b==1&&c==1) System.out.println(a*2);
+        else if (a==1) System.out.println((b+1)*c);
+        else if (b==1&&a<c) System.out.println((a+1)*c);
+        else if (b==1) System.out.println(a*(c+1));
+        else if (c==1) System.out.println(a*(b+1));
+        else System.out.println(a*b*c);
     }
 }
