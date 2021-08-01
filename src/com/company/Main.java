@@ -5,28 +5,18 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int s= in.nextInt(), n= in.nextInt();
-        int k=0;
-        boolean live = true;
-        TreeMap<Integer,Integer> arr =new TreeMap<>();
+        int n = in.nextInt(), l = in.nextInt();
+        Set<Integer> set = new LinkedHashSet<>();
+        double myMax=0, totalMax=0;
         for (int i = 0; i <n; i++) {
-            int x=in.nextInt(), y=in.nextInt();
-            if (arr.containsKey(x)) {
-                arr.replace(x,y+arr.get(x));
-                k++;
-            }
-            else arr.put(x,y);
+            set.add(in.nextInt());
         }
-        Vector<Integer> vector =new Vector(arr.keySet());
-        Vector<Integer> vector2 =new Vector(arr.values());
-        for (int i = 0; i <n-k; i++) {
-            if (s>vector.get(i)) s+=vector2.get(i);
-            else {
-                live=false;
-                break;
-            }
+        ArrayList<Integer> arrayList = new ArrayList<>(set);
+        Collections.sort(arrayList);
+        totalMax = (arrayList.get(0)>l-arrayList.get(arrayList.size()-1))?arrayList.get(0):l-arrayList.get(arrayList.size()-1);
+        for (int i = 1; i <arrayList.size(); i++) {
+            totalMax = Math.max((arrayList.get(i) - arrayList.get(i - 1))/2., totalMax);
         }
-        if (live) System.out.println("YES");
-        else System.out.println("NO");
+        System.out.printf("%.9f",totalMax/1.);
     }
 }
