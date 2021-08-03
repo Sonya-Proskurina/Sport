@@ -5,25 +5,15 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int t =in.nextInt();
-        for (int i = 0; i <t ; i++) {
-            String s=in.next();
-            int n=0,one=0;
-            Map<Character,Integer> map = new HashMap<>();
-            for (int j = 0; j <s.length(); j++) {
-                if (map.get(s.toCharArray()[j])==null) map.put(s.toCharArray()[j],1);
-                else {
-                    map.replace(s.toCharArray()[j],map.get(s.toCharArray()[j])+1);
-                }
+        String s1= in.next(), s2=in.next();
+        boolean b= s1.length()==s2.length();
+        for (int i = 0; i <s1.length(); i++) {
+            if (s1.toCharArray()[i]!=s2.toCharArray()[s2.length()-i-1]) {
+                b =false;
             }
-            for (Integer v : map.values()) {
-                if (v==1) one++;
-                else if (v>3) {
-                    n++;
-                }
-                else n+=v/2;
-            }
-            System.out.println(n+one/2);
+            if (!b) break;
         }
+        if (b) System.out.println("YES");
+        else System.out.println("NO");
     }
 }
