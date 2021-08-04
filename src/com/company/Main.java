@@ -5,13 +5,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt(),k;
-        k=n+1;
-        while (k%10==k/10%10||k%10==k/100%10||k%10==k/1000
-        ||k/10%10==k/100%10||k/10%10==k/1000
-        ||k/100%10==k/1000){
-            k++;
-        }
-        System.out.println(k);
+        long n = in.nextLong(),k = in.nextLong();
+        long d = (n%2==0)?n/2:n/2+1;
+        if (k<=d) System.out.println(k*2-1);
+        else System.out.println((k-d)*2);
     }
 }
