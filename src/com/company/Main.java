@@ -7,18 +7,16 @@ public class Main {
         Scanner in = new Scanner(System.in);
         long n = in.nextLong();
         for (int i = 0; i <n; i++) {
-            int a = in.nextInt(),k=0;
-            for (int j = 1; j <=a; j++) {
-                boolean f =true;
-                int x= j,z=x%10;
-                while (x!=0){
-                    if (x%10!=z) {
-                        f=false;
-                        break;
+            long a = in.nextLong(),k=0;
+            for (int j = 1; j <=9; j++) {
+                long ten=0;
+                for (int l = 0; l <=9; l++) {
+                    ten+= Math.pow(10,l);
+                    if (ten*j<=a) {
+                        k++;
                     }
-                    x=x/10;
+                    else break;
                 }
-                if (f) k++;
             }
             System.out.println(k);
         }
