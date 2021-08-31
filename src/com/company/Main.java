@@ -7,14 +7,13 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int n =in.nextInt();
 
-        for (int i = 0; i <n ; i++) {
-            int a=in.nextInt(), b = in.nextInt(), myMax = 0;
-            if (b-a<b/2) {
-                myMax = b-a;
+        for (int i = 0; i <n; i++) {
+            int a = in.nextInt();
+            if (a==1){
+                System.out.println("HARD");
+                return;
             }
-            else if (b%2==0) myMax = b/2-1;
-            else  myMax = b/2;
-            System.out.println(myMax);
         }
+        System.out.println("EASY");
     }
 }
