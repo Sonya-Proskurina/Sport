@@ -5,15 +5,25 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n =in.nextInt();
+        int n =in.nextInt(), minSum=0, k=0, tempSum=0;
+
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i <n; i++) {
+            arr[i]=in.nextInt();
+            minSum+=arr[i];
+        }
+
+        minSum/=2;
+        Arrays.sort(arr, Collections.reverseOrder());
 
         for (int i = 0; i <n; i++) {
-            int a = in.nextInt();
-            if (a==1){
-                System.out.println("HARD");
-                return;
+            tempSum+=arr[i];
+            k++;
+            if (tempSum>minSum){
+                break;
             }
         }
-        System.out.println("EASY");
+
+        System.out.println(k);
     }
 }
