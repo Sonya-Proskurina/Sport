@@ -5,25 +5,31 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n =in.nextInt(), minSum=0, k=0, tempSum=0;
-
-        Integer[] arr = new Integer[n];
-        for (int i = 0; i <n; i++) {
-            arr[i]=in.nextInt();
-            minSum+=arr[i];
-        }
-
-        minSum/=2;
-        Arrays.sort(arr, Collections.reverseOrder());
+        int n =in.nextInt();
 
         for (int i = 0; i <n; i++) {
-            tempSum+=arr[i];
-            k++;
-            if (tempSum>minSum){
-                break;
+            int k=in.nextInt(), x= in.nextInt();
+            List<Long> arrMax = new ArrayList<>();
+
+            arrMax.add(in.nextLong());
+            long myMax=0, myMin=arrMax.get(0);
+
+            for (int j = 1; j <k; j++) {
+                long a = in.nextLong();
+                arrMax.add(a);
+                myMin=(myMin+a);
             }
-        }
 
-        System.out.println(k);
+            int ost0 = (myMin%x==0)?0:1;
+            myMin/=x;
+            myMin+=ost0;
+
+            for (int j = 0; j <arrMax.size(); j++) {
+                int ost = (arrMax.get(j)%x==0)?0:1;
+                myMax+=arrMax.get(j)/x+ost;
+            }
+            System.out.println(myMin+" "+myMax);
+
+        }
     }
 }
