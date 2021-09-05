@@ -5,19 +5,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt(), m=in.nextInt(), min=1001;
-        List<Integer> list = new ArrayList<>();
-
-        for (int i = 0; i <m; i++) {
-            list.add(in.nextInt());
+        int n = in.nextInt(), m = in.nextInt(), t = n * m;
+        boolean Akshat = true;
+        while (t >0) {
+            int k = (n > 0 && m > 0) ? 1 : 0;
+            t -= (n+m-k);
+            m--;
+            n--;
+            if (t!=0)
+            Akshat=!Akshat;
         }
-
-        Collections.sort(list);
-
-        for (int i = 0; i <=m-n; i++) {
-            if (list.get(i+n-1)-list.get(i)<min) min=list.get(i+n-1)-list.get(i);
-        }
-
-        System.out.println(min);
+        if (Akshat) System.out.println("Akshat");
+        else System.out.println("Malvika");
     }
 }
