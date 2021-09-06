@@ -5,17 +5,12 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt(), m = in.nextInt(), t = n * m;
-        boolean Akshat = true;
-        while (t >0) {
-            int k = (n > 0 && m > 0) ? 1 : 0;
-            t -= (n+m-k);
-            m--;
-            n--;
-            if (t!=0)
-            Akshat=!Akshat;
+        int n = in.nextInt();
+        if (n >= 0) System.out.println(n);
+        else if ((n % 10 < (n / 10) % 10)) System.out.println(n / 10);
+        else if (n<=-10){
+            System.out.println((n / 100) * 10 + (n % 10));
         }
-        if (Akshat) System.out.println("Akshat");
-        else System.out.println("Malvika");
+        else System.out.println(0);
     }
 }
